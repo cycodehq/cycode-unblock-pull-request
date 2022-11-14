@@ -1,12 +1,13 @@
 import os
 from typing import List, Dict, Type
+
 import pydantic
+
 from consts import github
 from logger import logger
 from menus.menu_base import MenuBase
 from providers.github_handler import GithubHandler
 from release_block_pr_config import ReleaseBlockPrConfig
-
 
 release_block = "Release Blocked PR's"
 

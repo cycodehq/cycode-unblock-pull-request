@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import List, Set
+from typing import List
 
 
 class ProviderHandler(ABC):

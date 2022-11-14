@@ -1,8 +1,9 @@
-from typing import List, Set
+from typing import List
+
+from github import Github
 
 from logger import logger
 from providers.provider_handler import ProviderHandler
-from github import Github
 
 
 class GithubHandler(ProviderHandler):
