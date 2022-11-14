@@ -1,8 +1,7 @@
 from typing import Dict
-
-from PyInquirer import prompt, Separator
-import logging
+from PyInquirer import prompt
 from consts import providers, contexts, config_file
+from logger import logger
 from menus.menu_base import MenuBase
 from menus.release_block_pr_menu import ReleaseBlockPrMenu
 
@@ -10,8 +9,6 @@ release_block_pr_menu = ReleaseBlockPrMenu()
 menus = [release_block_pr_menu]
 menu_value_to_class: Dict[str, MenuBase] = {menu.get_menu(): menu for menu in menus}
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 main_menu = [
     {
@@ -50,5 +47,7 @@ if __name__ == '__main__':
     menu = menu_value_to_class.get(answer.get('menu'))
     if menu:
         menu.handle(answer)
+        logger.info("Completed successfully")
     else:
         logger.error(f"invalid menu {answer.get('menu')}")
+
