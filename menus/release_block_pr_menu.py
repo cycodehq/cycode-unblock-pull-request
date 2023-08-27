@@ -25,8 +25,12 @@ class ReleaseBlockPrMenu(MenuBase):
             for release_block_pr_config in release_block_pr_configs:
                 handler = handler_class(release_block_pr_config.token)
                 repositories = set(release_block_pr_config.repositories)
+
+                # Get all organizations repositories
                 for organization in release_block_pr_config.organizations:
                     repositories = repositories.union(handler.get_organization_repositories(organization))
+
+                # Release branch protection from all repositories
                 for repository in repositories:
                     handler.release_branch_protection(repository.organization_name, repository.repository_name,
                                                       repository.branch, answers["contexts"])
@@ -41,7 +45,10 @@ class ReleaseBlockPrMenu(MenuBase):
         if not os.path.isfile(config_file):
             return "File does not exist"
         try:
-            pydantic.parse_file_as(List[ReleaseBlockPrConfig], config_file)
+            parsed_configs = pydantic.parse_file_as(List[ReleaseBlockPrConfig], config_file)
+            for parsed_config in parsed_configs:
+                if len(parsed_config.organizations) == 0 and len(parsed_config.repositories) == 0:
+                    return f"Invalid input, need at least one repository or organization"
         except Exception as e:
             return f"Invalid input, not in the expected format {e}"
         return True
