@@ -40,7 +40,7 @@ class GithubHandler(ProviderHandler):
                 repository_config = RepositoryConfig(
                     repository_name=repository.name,
                     organization_name=organization_name,
-                    branch=repository.default_branch  # Replace with the desired default branch
+                    branch=repository.default_branch
                 )
                 repository_configs.append(repository_config)
             return repository_configs
