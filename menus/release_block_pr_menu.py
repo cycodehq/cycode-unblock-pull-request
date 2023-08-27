@@ -20,11 +20,13 @@ class ReleaseBlockPrMenu(MenuBase):
     def handle(self, answers):
         if answers.get("provider") in self.handlers:
             handler_class = self.handlers[answers["provider"]]
-            repositories_to_unblock: List[ReleaseBlockPrConfig] = pydantic.parse_file_as(List[ReleaseBlockPrConfig],
-                                                                                         answers["config_file"])
-            for tokens_to_repositories in repositories_to_unblock:
-                handler = handler_class(tokens_to_repositories.token)
-                for repository in tokens_to_repositories.repositories:
+            release_block_pr_configs: List[ReleaseBlockPrConfig] = pydantic.parse_file_as(List[ReleaseBlockPrConfig],                                                                       answers["config_file"])
+            for release_block_pr_config in release_block_pr_configs:
+                handler = handler_class(release_block_pr_config.token)
+                repositories = set(release_block_pr_config.repositories)
+                for organization in release_block_pr_config.organizations:
+                    repositories = repositories.union(handler.get_organization_repositories(organization))
+                for repository in repositories:
                     handler.release_branch_protection(repository.organization_name, repository.repository_name,
                                                       repository.branch, answers["contexts"])
         else:

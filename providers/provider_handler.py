@@ -10,3 +10,7 @@ class ProviderHandler(ABC):
     @abstractmethod
     def release_branch_protection(self, organization_name, repository_name, branch, contexts: List[str]):
         pass
+
+    @abstractmethod
+    def get_organization_repositories(self, organization_name):
+        pass
