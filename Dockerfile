@@ -7,11 +7,10 @@ WORKDIR /app
 # Copy all files from the build context into the container's /app/ directory
 COPY . /app/
 
-# Prevent Python from buffering output streams
-ENV PYTHONUNBUFFERED=1
-
 # Install your Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install pydantic==1.10.2
+RUN pip install PyGithub==1.57
+RUN pip install PyInquirer==1.0.3
 
 # Command to run your Python console app
 CMD ["python", "main.py"]
