@@ -8,9 +8,9 @@ WORKDIR /app
 COPY . /app/
 
 # Install your Python dependencies
-RUN pip install pydantic==1.10.2
-RUN pip install PyGithub==1.57
-RUN pip install PyInquirer==1.0.3
+RUN pip install --no-cache-dir pydantic==1.10.2
+RUN pip install --no-cache-dir PyGithub==1.57
+RUN pip install --no-cache-dir PyInquirer==1.0.3
 
 # Command to run your Python console app
 CMD ["python", "main.py"]
