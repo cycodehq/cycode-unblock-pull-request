@@ -26,9 +26,14 @@ remain resilient even when faced with adversity.
 
 1. Clone this repository
 2. Build your local docker image
-
+```
+docker build -t cycode_recovery_tool . --no-cache
 ```
 
+3. Run the docker image
+
+```
+docker run -ti cycode_recovery_tool
 ```
 
 ## Usage
@@ -40,7 +45,35 @@ remain resilient even when faced with adversity.
 
 ## configuration file
 
-Input is as follows:
+There is a sample config file added to the project
+
+```
+[
+  {
+    "token": "<Github token with repo scope permission>",
+    "provider": "Github",
+    "repositories": [
+      {
+        "repository_name": "my_repository",
+        "organization_name": "my_organization",
+        "branch": "main"
+      }
+    ],
+    "organizations": [
+      {
+        "organization_name": "my_organization"
+      },
+      {
+        "organization_name": "my_second_organization"
+      }
+    ]
+  }
+]
+```
+
+* You can provide either `repositories` or `organizations`. You don't need both, but you need at least one of the two.
+* In case `organizations` are provided,we will update all the organization's default branch in all repositories.
+* You can provide multiple SCM configurations.
 
 ## License
 

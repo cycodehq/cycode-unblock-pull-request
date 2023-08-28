@@ -7,9 +7,9 @@ from consts import github
 from logger import logger
 from menus.menu_base import MenuBase
 from providers.github_handler import GithubHandler
-from release_block_pr_config import ReleaseBlockPrConfig
+from release_block_pr_config import ReleaseBlockPrConfig, RepositoryConfig
 
-release_block = "Release Blocked PR's"
+release_block = "Release Blocked Pull Requests"
 
 
 class ReleaseBlockPrMenu(MenuBase):
@@ -24,11 +24,12 @@ class ReleaseBlockPrMenu(MenuBase):
                                                                                           answers["config_file"])
             for release_block_pr_config in release_block_pr_configs:
                 handler = handler_class(release_block_pr_config.token)
-                repositories = set(release_block_pr_config.repositories)
+                repositories: List[RepositoryConfig] = release_block_pr_config.repositories
 
                 # Get all organizations repositories
-                for organization in release_block_pr_config.organizations:
-                    repositories = repositories.union(handler.get_organization_repositories(organization))
+                organization_names = [organization.organization_name for organization
+                                      in release_block_pr_config.organizations]
+                repositories.extend(handler.get_organizations_repositories(organization_names))
 
                 # Release branch protection from all repositories
                 for repository in repositories:

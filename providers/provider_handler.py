@@ -12,5 +12,5 @@ class ProviderHandler(ABC):
         pass
 
     @abstractmethod
-    def get_organization_repositories(self, organization_name):
+    def get_organizations_repositories(self, organization_names):
         pass
