@@ -71,6 +71,7 @@ There is a sample config file added to the project
 ]
 ```
 
+* The token should have `repo` scope permissions.
 * You can provide either `repositories` or `organizations`. You don't need both, but you need at least one of the two.
 * In case `organizations` are provided,we will update all the organization's default branch in all repositories.
 * You can provide multiple SCM configurations.
