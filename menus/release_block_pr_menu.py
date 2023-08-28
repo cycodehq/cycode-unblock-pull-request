@@ -24,7 +24,9 @@ class ReleaseBlockPrMenu(MenuBase):
                                                                                           answers["config_file"])
             for release_block_pr_config in release_block_pr_configs:
                 handler = handler_class(release_block_pr_config.token)
-                repositories: List[RepositoryConfig] = release_block_pr_config.repositories
+                repositories: List[RepositoryConfig] = []
+                if release_block_pr_config.repositories is not None:
+                    repositories.extend(release_block_pr_config.repositories)
 
                 # Get all organizations repositories
                 organization_names = [organization.organization_name for organization
