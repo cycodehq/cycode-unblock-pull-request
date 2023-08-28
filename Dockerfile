@@ -10,9 +10,6 @@ WORKDIR /app
 # Copy all files from the build context into the container's /app/ directory
 COPY . /app/
 
-# Update pip
-RUN pip install --no-cache-dir --upgrade pip
-
 # Install your Python dependencies
 RUN pip install --no-cache-dir PyGithub==1.57
 RUN pip install --no-cache-dir PyInquirer==1.0.3
