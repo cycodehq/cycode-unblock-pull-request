@@ -15,7 +15,7 @@ main_menu = [
     {
         'type': 'list',
         'name': 'menu',
-        'message': 'What do you want to do?',
+        'message': 'What would you like to do?',
         'choices': [menu for menu in menu_value_to_class.keys()],
 
     },
@@ -30,14 +30,14 @@ main_menu = [
     {
         'type': 'list',
         'name': 'provider',
-        "message": "Which provider?",
+        "message": "Which SCM provider?",
         "choices": providers,
         "when": release_block_pr_menu.menu_chosen,
     },
     {
         'type': 'checkbox',
         'name': 'contexts',
-        "message": "Which contexts?",
+        "message": "Which status checks?",
         "choices": [{"name": context} for context in contexts],
         "when": release_block_pr_menu.menu_chosen
     }

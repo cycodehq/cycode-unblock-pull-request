@@ -4,6 +4,7 @@ from github import Github
 
 from logger import logger
 from providers.provider_handler import ProviderHandler
+from release_block_pr_config import RepositoryConfig
 
 
 class GithubHandler(ProviderHandler):
@@ -27,5 +28,22 @@ class GithubHandler(ProviderHandler):
                     branch.edit_required_status_checks(contexts=list(contexts_to_keep))
                 else:
                     logger.info(f"Skipping {full_repo_name} contexts to remove are not required")
-            except:
-                logger.exception(f"Failed to update required status checks on repository {full_repo_name}")
+            except Exception as e:
+                logger.exception(f"Failed to update required status checks on repository {full_repo_name}: {e}")
+
+    def get_organizations_repositories(self, organization_names):
+        repository_configs = []
+        for organization_name in organization_names:
+            try:
+                organization = self.github.get_organization(organization_name)
+                repositories = organization.get_repos()
+                for repository in repositories:
+                    repository_config = RepositoryConfig(
+                        repository_name=repository.name,
+                        organization_name=organization_name,
+                        branch=repository.default_branch
+                    )
+                    repository_configs.append(repository_config)
+            except Exception as e:
+                logger.exception(f"Failed to get repositories for organization {organization_name}: {e}")
+        return repository_configs
