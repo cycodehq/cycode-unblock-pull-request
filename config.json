@@ -1,0 +1,21 @@
+[
+  {
+    "token": "<Github token with repo scope permission>",
+    "provider": "Github",
+    "repositories": [
+      {
+        "repository_name": "my_repository",
+        "organization_name": "my_organization",
+        "branch": "main"
+      }
+    ],
+    "organizations": [
+      {
+        "organization_name": "my_organization"
+      },
+      {
+        "organization_name": "my_second_organization"
+      }
+    ]
+  }
+]
