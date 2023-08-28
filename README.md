@@ -1,39 +1,47 @@
-# cycode_recovery_utils
+# Cycode Recovery Tool
 
-This script will be responsible for various recovery utils. currently supports
+![logo](https://e5s6t7j5.rocketcdn.me/wp-content/uploads/2020/10/Cycode_logo.svg)
 
-- Release blocked pr's
-    - github
+## Table of Contents
 
-## installation
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [License](#license)
 
-`pip install -r requirements.txt`
+## Overview
 
-## usage
+Introducing the Cycode Recovery Tool, an internal disaster recovery solution exclusively designed to support Cycode's
+customers. This invaluable tool steps in during times of a disaster, ensuring that your software development workflows
+remain resilient even when faced with adversity.
 
-`python3 main.py`
+## Features
 
-- choose recovery action:
-- Release Block Pr: provide path for the configuration file
-  ![recovery action](./docs/recovery_action.png)
-- Release Block Pr: choose provider
-- Release Block Pr: choose which status checks to release
-  ![status_checks_release](./docs/status_checks_release.png)
+* PR Unblocking: The Cycode Recovery Tool specializes in freeing up blocked Pull Requests (PRs), currently providing
+  support exclusively for GitHub repositories. If your development process hits a snag with a blocked PR, this tool
+  comes to the rescue, swiftly resolving the issue and getting your workflow back on track.
+
+## Getting Started
+
+1. Clone this repository
+2. Build your local docker image
+
+```
+
+```
+
+## Usage
+
+1. Choose recovery action (currently only Release Block Pr) ![recovery action](./docs/recovery_action.png)
+2. Provide path for the configuration file (or use our default config.json file)
+3. Choose provider (currently only Github)
+4. Choose which status checks to release ![status_checks_release](./docs/status_checks_release.png)
 
 ## configuration file
 
 Input is as follows:
 
-```[
-  {
-    "token": "token",
-    "provider": "github",
-    "repositories": [
-      {
-        "repository_name": "ilan-repo4",
-        "organization_name": "firecorp",
-        "branch": "main"
-      }
-    ]
-  }
-]
+## License
+
+This project is licensed under the MIT License.

@@ -2,7 +2,7 @@
 FROM python:3.8-alpine
 
 # Install necessary development tools
-RUN apk add --no-cache libffi-dev build-base
+RUN apk add --no-cache libffi-dev=3.4.4-r2 build-base=0.5-r3
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -11,7 +11,7 @@ WORKDIR /app
 COPY . /app/
 
 # Update pip
-RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
 
 # Install your Python dependencies
 RUN pip install --no-cache-dir PyGithub==1.57
