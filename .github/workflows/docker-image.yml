@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - 'CM-26624-add-dockerhub-github-action'
 
 jobs:
   docker:
@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: user/app:latest
+          tags: cycodehq/cycode_recovery_utils/cycode_recovery_utils:latest
