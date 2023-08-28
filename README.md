@@ -24,14 +24,13 @@ remain resilient even when faced with adversity.
 
 ## Getting Started
 
+As easy as 1-2-3!
 1. Clone this repository
 2. Build your local docker image
 ```
 docker build -t cycode_recovery_tool . --no-cache
 ```
-
 3. Run the docker image
-
 ```
 docker run -ti cycode_recovery_tool
 ```
