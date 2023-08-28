@@ -8,6 +8,7 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [Configuration](#configuration-file)
 - [License](#license)
 
 ## Overview
@@ -42,7 +43,7 @@ docker run -ti cycode_recovery_tool
 3. Choose provider (currently only Github)
 4. Choose which status checks to release ![status_checks_release](./docs/status_checks_release.png)
 
-## configuration file
+## Configuration File
 
 There is a sample config file added to the project
 
