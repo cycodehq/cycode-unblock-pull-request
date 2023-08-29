@@ -1,9 +1,9 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - 'CM-26624-add-dockerhub-github-action'
+  release:
+    types:
+      - created
 
 jobs:
   docker:
