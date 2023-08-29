@@ -3,7 +3,7 @@ from typing import List, Dict, Type
 
 import pydantic
 
-from consts import github
+from consts import github, config_file
 from logger import logger
 from menus.menu_base import MenuBase
 from providers.github_handler import GithubHandler
