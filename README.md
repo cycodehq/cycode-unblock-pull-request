@@ -28,6 +28,7 @@ remain resilient even when faced with adversity.
 ### Configuration File
 
 The tool expects a configuration file with SCM information named `config.json`. You can either add this config file when you build the docker image or mount the configuration file with `docker run -v`.
+
 Sample config file:
 
 ```
@@ -81,9 +82,11 @@ docker run -v /path/to/file/config.json:/app/config.json -ti cycode_recovery_too
 
 ## Usage
 
-1. Choose recovery action (currently only Release Block Pr) ![recovery action](./docs/recovery_action.png)
+1. Choose recovery action (currently only Release Block Pr)
+![recovery action](./docs/recovery_action.png)
 2. Choose provider (currently only GitHub)
-3. Choose which status checks to release ![status_checks_release](./docs/status_checks_release.png)
+3. Choose which status checks to release
+![status_checks_release](./docs/status_checks_release.png)
 
 ## License
 
