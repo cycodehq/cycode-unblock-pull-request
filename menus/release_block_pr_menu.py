@@ -3,7 +3,7 @@ from typing import List, Dict, Type
 
 import pydantic
 
-from consts import github
+from consts import github, config_file
 from logger import logger
 from menus.menu_base import MenuBase
 from providers.github_handler import GithubHandler
@@ -21,7 +21,7 @@ class ReleaseBlockPrMenu(MenuBase):
         if answers.get("provider") in self.handlers:
             handler_class = self.handlers[answers["provider"]]
             release_block_pr_configs: List[ReleaseBlockPrConfig] = pydantic.parse_file_as(List[ReleaseBlockPrConfig],
-                                                                                          answers["config_file"])
+                                                                                          config_file)
             for release_block_pr_config in release_block_pr_configs:
                 handler = handler_class(release_block_pr_config.token)
                 repositories: List[RepositoryConfig] = []
@@ -42,16 +42,3 @@ class ReleaseBlockPrMenu(MenuBase):
 
     def get_menu(self):
         return release_block
-
-    @staticmethod
-    def validate_config_file(config_file):
-        if not os.path.isfile(config_file):
-            return "File does not exist"
-        try:
-            parsed_configs = pydantic.parse_file_as(List[ReleaseBlockPrConfig], config_file)
-            for parsed_config in parsed_configs:
-                if len(parsed_config.organizations) == 0 and len(parsed_config.repositories) == 0:
-                    return f"Invalid input, need at least one repository or organization"
-        except Exception as e:
-            return f"Invalid input, not in the expected format {e}"
-        return True

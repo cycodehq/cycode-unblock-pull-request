@@ -1,5 +1,5 @@
 config_file = "config.json"
-github = "Github"
+github = "GitHub"
 providers = [github]
 contexts = ["Cycode: Secrets",
             "Cycode: IaC",
