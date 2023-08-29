@@ -21,7 +21,7 @@ class ReleaseBlockPrMenu(MenuBase):
         if answers.get("provider") in self.handlers:
             handler_class = self.handlers[answers["provider"]]
             release_block_pr_configs: List[ReleaseBlockPrConfig] = pydantic.parse_file_as(List[ReleaseBlockPrConfig],
-                                                                                          answers["config_file"])
+                                                                                          config_file)
             for release_block_pr_config in release_block_pr_configs:
                 handler = handler_class(release_block_pr_config.token)
                 repositories: List[RepositoryConfig] = []

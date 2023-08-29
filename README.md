@@ -44,7 +44,7 @@ docker run -ti cycode_recovery_tool
 
 ## configuration file
 
-There is a sample config file added to the project
+Here is a sample config file
 
 ```
 [
