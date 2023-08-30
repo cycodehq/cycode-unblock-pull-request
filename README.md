@@ -34,8 +34,8 @@ Sample config file:
 ```
 [
   {
-    "token": "<Github token with repo scope permission>",
-    "provider": "Github",
+    "token": "<GitHub token with repo scope permission>",
+    "provider": "GitHub",
     "repositories": [
       {
         "repository_name": "my_repository",

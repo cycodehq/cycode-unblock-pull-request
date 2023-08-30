@@ -41,7 +41,6 @@ main_menu = [
 
 def validate_config_file():
     if not os.path.isfile(config_file):
-        print("Files in /app directory:", os.listdir("/app"))
         return f"Could not find '{config_file}' file in the directory {os.getcwd()}"
     try:
         parsed_configs = pydantic.parse_file_as(List[ReleaseBlockPrConfig], config_file)
