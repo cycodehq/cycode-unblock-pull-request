@@ -66,27 +66,27 @@ There are 2 options to run the Cycode recovery tool:
 
 ### Pulling Cycode image
 ```
-docker pull cycodehq/cycode_recovery_utils:latest
+docker pull cycodehq/cycode_unblock_pull_request:latest
 ```
 
 ### Building an image locally
 ```
-docker build -t cycode_recovery_tool . --no-cache
+docker build -t cycode_unblock_pull_request . --no-cache
 ```
 
 ### Running the docker image
 You will need to provide your configuration file
 ```
-docker run -v /path/to/file/config.json:/app/config.json -ti cycode_recovery_tool
+docker run -v /path/to/file/config.json:/app/config.json -ti cycode_unblock_pull_request
 ```
 
 ## Usage
 
 1. Choose recovery action (currently only Release Block Pr)
-![recovery action](./docs/recovery_action.png)
+![recovery action](./docs/recovery_action-1.png)
 2. Choose provider (currently only GitHub)
 3. Choose which status checks to release
-![status_checks_release](./docs/status_checks_release.png)
+![status_checks_release](./docs/status_checks_release-1.png)
 
 ## License
 

@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: cycodehq/cycode_recovery_utils:latest
+          tags: cycodehq/cycode_unblock_pull_request:latest
