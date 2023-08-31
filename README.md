@@ -1,4 +1,4 @@
-# Cycode Recovery Tool
+# Cycode Unblock Pull Request
 
 ![logo](https://e5s6t7j5.rocketcdn.me/wp-content/uploads/2020/10/Cycode_logo.svg)
 
