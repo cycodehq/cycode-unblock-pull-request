@@ -83,10 +83,9 @@ docker run -v /path/to/file/config.json:/app/config.json -ti cycode_unblock_pull
 ## Usage
 
 1. Choose recovery action (currently only Release Block Pr)
-![recovery action](./docs/recovery_action-1.png)
 2. Choose provider (currently only GitHub)
 3. Choose which status checks to release
-![status_checks_release](./docs/status_checks_release-1.png)
+![status_checks_release](./docs/status_checks_release.png)
 
 ## License
 
